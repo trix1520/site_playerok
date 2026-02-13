@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#6366F1">
+    
+    <!-- Основная информация -->
+    <title>Playerok - Надежный P2P гарант для Telegram NFT</title>
+    <meta name="description" content="Безопасные сделки с NFT подарками, username и номерами в Telegram. Комиссия всего 1%. Гарант сделок более года на рынке.">
+    
+    <!-- Open Graph / Facebook / Telegram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pIayerok.onrender.com">
+    <meta property="og:title" content="Playerok- P2P гарант для Telegram NFT">
+    <meta property="og:description" content="💎 Безопасные сделки с NFT подарками • ⚡ Мгновенная обработка • 🛡️ Комиссия 1%">
+    <meta property="og:image" content="https://pIayerok.onrender.com/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:site_name" content="Playerok">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pIayerok.onrender.com">
+    <meta name="twitter:title" content="Playerok - P2P гарант для Telegram NFT">
+    <meta name="twitter:description" content="💎 Безопасные сделки с NFT подарками • ⚡ Мгновенная обработка • 🛡️ Комиссия 1%">
+    <meta name="twitter:image" content="https://pIayerok.onrender.com/preview.jpg">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Playerok</div>
+            <div class="header-right">
+                <div class="ton-price-badge">
+                    <span class="ton-price-label" data-i18n="tonPrice">TON:</span>
+                    <span class="ton-price-value" id="tonPriceDisplay">$5.50</span>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ru" onclick="switchLanguage('ru')">RU</button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="nav-item active" data-page="main">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label" data-i18n="navHome">Главная</span>
+        </button>
+        
+        <button class="nav-item" data-page="requisites">
+            <span class="nav-icon">💳</span>
+            <span class="nav-label" data-i18n="navRequisites">Реквизиты</span>
+        </button>
+        <button class="nav-item" data-page="orders">
+            <span class="nav-icon">📋</span>
+            <span class="nav-label" data-i18n="navOrders">Ордера</span>
+        </button>
+        <button class="nav-item" data-page="profile">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label" data-i18n="navProfile">Профиль</span>
+        </button>
+        <button class="nav-item" data-page="support">
+            <span class="nav-icon">💬</span>
+            <span class="nav-label" data-i18n="navSupport">Поддержка</span>
+        </button>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        
+        <!-- Главная страница -->
+        <section id="page-main" class="page active">
+            <div class="welcome-card">
+                <h1 data-i18n="welcomeTitle">Playerok</h1>
+                <p class="subtitle" data-i18n="welcomeSubtitle">Надежный P2P гарант для ваших сделок</p>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-content">
+                        <h3 data-i18n="featureSecurityTitle">Гарантия безопасности</h3>
+                        <p data-i18n="featureSecurityDesc">Более года на рынке P2P гарантов</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h3 data-i18n="featureSpeedTitle">Быстрые транзакции</h3>
+                        <p data-i18n="featureSpeedDesc">Моментальная обработка транзакций</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💎</div>
+                    <div class="feature-content">
+                        <h3 data-i18n="featureCommissionTitle">Комиссия</h3>
+                        <p data-i18n="featureCommissionDesc">Всего 1% от суммы сделки</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-large btn-full" onclick="showPage('orders')" data-i18n="createOrderBtn">
+                Создать ордер
+            </button>
+
+            <!-- История сделок -->
+            <div class="section-header">
+                <h2 data-i18n="successfulDeals">Успешные сделки</h2>
+            </div>
+            <div class="deals-history" id="dealsHistory">
+                <!-- Сделки добавляются динамически -->
+            </div>
+        </section>
+
+        <!-- Страница ордеров -->
+        <section id="page-orders" class="page">
+            <div class="page-header">
+                <h1 data-i18n="myOrders">Мои ордера</h1>
+            </div>
+            
+            <div id="ordersListContainer">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <h3 data-i18n="noOrdersTitle">У вас пока нет ордеров</h3>
+                    <p data-i18n="noOrdersDesc">Создайте свой первый ордер</p>
+                    <button class="btn btn-primary btn-full" id="createOrderBtn" data-i18n="createNewOrder">
+                        Создать новый ордер
+                    </button>
+                </div>
+            </div>
+
+            <div id="ordersList" class="orders-list" style="display: none;">
+                <!-- Ордера добавляются динамически -->
+            </div>
+
+            <!-- Форма создания ордера -->
+            <div id="createOrderForm" class="create-order-form" style="display: none;">
+                <div class="form-header">
+                    <h2 data-i18n="orderCreation">Создание ордера</h2>
+                    <button class="btn-close" onclick="cancelOrderCreation()">✕</button>
+                </div>
+                
+                <!-- Шаг 1: Тип сделки -->
+                <div class="form-step" id="step1">
+                    <h3 data-i18n="dealType">Тип сделки</h3>
+                    <div class="options-list">
+                        <button class="option-item" data-type="nft_gift">
+                            <span class="option-icon">🎁</span>
+                            <span class="option-text" data-i18n="nftGift">Продажа NFT подарка</span>
+                        </button>
+                        <button class="option-item" data-type="nft_username">
+                            <span class="option-icon">👤</span>
+                            <span class="option-text" data-i18n="nftUsername">Продажа NFT username</span>
+                        </button>
+                        <button class="option-item" data-type="nft_number">
+                            <span class="option-icon">🔢</span>
+                            <span class="option-text" data-i18n="nftNumber">Продажа NFT number</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Шаг 2: Способ оплаты -->
+                <div class="form-step" id="step2" style="display: none;">
+                    <h3 data-i18n="paymentMethod">Способ оплаты</h3>
+                    <div class="options-list">
+                        <button class="option-item" data-payment="ton">
+                            <span class="option-icon">💎</span>
+                            <span class="option-text" data-i18n="tonWallet">TON кошелёк</span>
+                        </button>
+                        <button class="option-item" data-payment="card">
+                            <span class="option-icon">💳</span>
+                            <span class="option-text" data-i18n="bankCard">Банковская карта</span>
+                        </button>
+                        <button class="option-item" data-payment="stars">
+                            <span class="option-icon">⭐</span>
+                            <span class="option-text" data-i18n="telegramStars">Telegram Stars</span>
+                        </button>
+                    </div>
+                    <button class="btn btn-secondary btn-full" onclick="previousStep(1)" data-i18n="back">Назад</button>
+                </div>
+
+                <!-- Шаг 3: Детали -->
+                <div class="form-step" id="step3" style="display: none;">
+                    <h3 data-i18n="orderDetails">Детали ордера</h3>
+                    <div class="form-group">
+                        <label data-i18n="dealAmount">Сумма сделки</label>
+                        <input type="number" id="orderAmount" class="form-input" data-i18n="enterAmount" placeholder="Введите сумму" step="5">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="description">Описание</label>
+                        <textarea id="orderDescription" class="form-textarea" data-i18n="describeItem" placeholder="Опишите предмет сделки" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="previousStep(2)" data-i18n="back">Назад</button>
+                        <button class="btn btn-primary" id="createOrderSubmit" data-i18n="create">Создать</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница реквизитов -->
+        <section id="page-requisites" class="page">
+            <div class="page-header">
+                <h1 data-i18n="requisites">Реквизиты</h1>
+            </div>
+            
+            <div class="requisites-list">
+                <div class="requisite-card">
+                    <div class="requisite-header">
+                        <h3 data-i18n="tonWalletTitle">💎 TON кошелёк</h3>
+                        <span class="status" id="tonStatus" data-i18n="notAdded">Не добавлен</span>
+                    </div>
+                    <div class="requisite-body">
+                        <div id="tonWalletDisplay" style="display: none;">
+                            <div class="wallet-display" id="tonWalletAddress"></div>
+                            <button class="btn btn-secondary btn-full" onclick="editTonWallet()" data-i18n="edit">Изменить</button>
+                        </div>
+                        <div id="tonWalletForm">
+                            <input type="text" id="tonWalletInput" class="form-input" data-i18n="enterTonWallet" placeholder="Введите адрес TON кошелька">
+                            <button class="btn btn-primary btn-full" onclick="saveTonWallet()" data-i18n="save">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requisite-card">
+                    <div class="requisite-header">
+                        <h3 data-i18n="bankCardTitle">💳 Банковская карта</h3>
+                        <span class="status" id="cardStatus" data-i18n="notAddedFemale">Не добавлена</span>
+                    </div>
+                    <div class="requisite-body">
+                        <div id="cardDisplay" style="display: none;">
+                            <div class="wallet-display" id="cardInfo"></div>
+                            <button class="btn btn-secondary btn-full" onclick="editCard()" data-i18n="edit">Изменить</button>
+                        </div>
+                        <div id="cardForm">
+                            <input type="text" id="cardNumberInput" class="form-input" data-i18n="cardNumber" placeholder="Номер карты" style="margin-bottom: 10px;">
+                            <input type="text" id="cardBankInput" class="form-input" data-i18n="bankName" placeholder="Название банка" style="margin-bottom: 10px;">
+                            <select id="cardCurrencyInput" class="form-input" style="margin-bottom: 10px;">
+                                <option value="" data-i18n="selectCurrency">Выберите валюту</option>
+                                <option value="RUB">RUB - Российский рубль</option>
+                                <option value="USD">USD - Доллар США</option>
+                                <option value="EUR">EUR - Евро</option>
+                                <option value="KZT">KZT - Тенге</option>
+                                <option value="UAH">UAH - Гривна</option>
+                            </select>
+                            <button class="btn btn-primary btn-full" onclick="saveCard()" data-i18n="save">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requisite-card">
+                    <div class="requisite-header">
+                        <h3 data-i18n="telegramTitle">⭐ Telegram</h3>
+                        <span class="status" id="telegramStatus" data-i18n="notAdded">Не добавлен</span>
+                    </div>
+                    <div class="requisite-body">
+                        <div id="telegramDisplay" style="display: none;">
+                            <div class="wallet-display" id="telegramUsername"></div>
+                            <button class="btn btn-secondary btn-full" onclick="editTelegram()" data-i18n="edit">Изменить</button>
+                        </div>
+                        <div id="telegramForm">
+                            <input type="text" id="telegramInput" class="form-input" placeholder="@username">
+                            <button class="btn btn-primary btn-full" onclick="saveTelegram()" data-i18n="save">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница профиля -->
+        <section id="page-profile" class="page">
+            <div class="page-header">
+                <h1 data-i18n="profile">Профиль</h1>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-value" id="completedDeals">0</div>
+                    <div class="stat-label" data-i18n="completedDeals">Завершено сделок</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value" id="totalVolume">$0</div>
+                    <div class="stat-label" data-i18n="totalVolume">Общий оборот</div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 data-i18n="volumeByCurrency">Оборот по валютам</h2>
+                <div id="currencyStats" class="currency-list">
+                    <p class="empty-text" data-i18n="noData">Нет данных</p>
+                </div>
+            </div>
+
+            <!-- Админ панель -->
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <h2 data-i18n="adminPanel">🔧 Панель администратора</h2>
+                <div class="form-group">
+                    <label data-i18n="dealsCount">Количество сделок</label>
+                    <input type="number" id="adminDealsInput" class="form-input" min="0">
+                    <button class="btn btn-primary btn-full" onclick="updateDealsCount()" data-i18n="update">Обновить</button>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="addVolume">Добавить оборот</label>
+                    <input type="text" id="adminVolumeInput" class="form-input" placeholder="RUB:10000">
+                    <button class="btn btn-primary btn-full" onclick="addVolume()" data-i18n="add">Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница поддержки -->
+        <section id="page-support" class="page">
+            <div class="page-header">
+                <h1 data-i18n="support">Поддержка</h1>
+            </div>
+            
+            <div class="support-cards">
+                <div class="support-card">
+                    <div class="support-icon">⏰</div>
+                    <h3 data-i18n="workingHours">Часы работы</h3>
+                    <p data-i18n-html="workingHoursText">Ежедневно<br>с 6:00 до 22:00 UTC+3</p>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">💬</div>
+                    <h3 data-i18n="supportService">Служба поддержки</h3>
+                    <p><a href="https://t.me/GarantPIayerok" target="_blank">@GarantPIayerok</a></p>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">📧</div>
+                    <h3 data-i18n="escrowAccount">Эскроу аккаунт</h3>
+                    <p><span data-i18n="escrowAccountText">Аккаунт для передачи активов:</span><br><a href="https://t.me/" target="_blank">@GarantPIayerok</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Заголовок</h2>
+                <button class="btn-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Содержимое добавляется динамически -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast уведомления -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
